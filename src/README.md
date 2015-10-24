@@ -40,9 +40,22 @@ Os componentes ReactJS são utilizados como tags normais, incluindo a possibilid
 
 ---
 
+## Uma Analogia Plausível
+
+Mesmo sendo incompatível uma comparação entre o ReactJS e os frameworks listados anteriormente, devido ao primeiro se tratar de uma biblioteca, tecnicamente falando, é ainda possível fazer uma analogia direta:
+
+> É possível dizer que, no contexto da camada de view, o ReactJS é uma união de dois mundos, considerando o BackboneJS e o AngularJS como referência.
+
+Essa conclusão se deve a suas observações importantes:
+
+1. Como no BackboneJS, a ideia de componente se torna bem visível, onde o isolamento do mesmo se dá de forma natural. No BackboneJS, isso é realizado através do atributo `el` do objeto, no ReactJS, de forma implementada internamente pela biblioteca.
+2. Como no AngularJS, ao contrário do BackboneJS, as atribuições de ação, são definidas de forma declarativa, no próprio template, não necessitando vincular os elementos da view aos handlers programaticamente, como ocorre no segundo.
+
+---
+
 ## Virtual DOM
 
-Como dito antes, o Virtual DOM é uma versão leve da estrutura mantida pelo browser. Sua utilização se deve a uma melhor performance durante o ciclo de vida dos componentes, permitindo uma interação entre eles e o núcleo da biblioteca muito mais rápida do que se houvesse a necessidade de um acesso direto ao DOM.
+Como dito antes, o Virtual DOM é uma versão leve da estrutura mantida pelo browser. Sua utilização se deve a uma melhor performance durante o ciclo de vida dos componentes, permitindo uma interação entre eles e o núcleo da biblioteca muito mais rápida do que se houvesse a necessidade de um acesso direto ao DOM, que depende de uma cadeia de acesso muito maior.
 
 ---
 
@@ -52,7 +65,7 @@ Com o advento do Virtual DOM, visto que este não é o que está renderizado no 
 
 A montagem ocorre com a chamada do método (de implementação obrigátoria) <b>render()</b> do componente em questão. 
 
-Uma curiosidade sobre o método <b>render()</b> é que, mesmo sendo obrigatório na implementação do componente, ele pode retornar <b>null</b>. Nesse caso, o objeto passará pelo mesmo ciclo de vida da montagem (renderização inicial), mas não terá conteúdo renderizado. Casos de uso para esse tipo de cenário incluem componentes abstratos como controles de roteamento e mecanismos de gerenciamento de eventos globais.
+Uma curiosidade sobre o método <b>render()</b> é que, mesmo sendo obrigatório na implementação do componente, ele pode retornar <b>null</b>. Nesse caso, o component passará pelo mesmo ciclo de vida da montagem, mas não terá conteúdo exibido no browser. Casos de uso para esse tipo de cenário incluem componentes abstratos como controles de roteamento e mecanismos de gerenciamento de eventos globais.
 
 ---
 
@@ -60,7 +73,7 @@ Uma curiosidade sobre o método <b>render()</b> é que, mesmo sendo obrigatório
 
 O ciclo de vida dos componentes ReactJS seguem quatro cenários básicos:
 
-1. Renderização Inicial (Montagem)
+1. Montagem
 2. Alteração de Propriedades
 3. Alteração de Estado
 4. Desmontagem
