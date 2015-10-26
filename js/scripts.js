@@ -4640,7 +4640,7 @@ Reveal.addEventListener('ready', function() {
   'use strict';
 
   var footer = TEMPLATES.footer({
-    title: 'ReactJS'
+    title: 'A vida secreta dos componentes'
   });
 
   var sectionEls = document.querySelectorAll('section:not(.stack)');
