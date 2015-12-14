@@ -20,92 +20,141 @@ You should just edit the source file at src/README.md - the one which stars with
 
 ---
 
-## ReactJS
+## What is Swagger
 
-ReactJS é uma biblioteca Javascript criada inicialmente para resolver problemas no desenvolvimento de funcionalidades do Facebook e Instagram. Assim como BackboneJS, AngularJS, EmberJS, etc, o ReactJS vem se tornando realmente popular nos últimos anos e tem gerado muitas dúvidas e soluções interessantes.
+Swagger is the most popular language to manage REST APIs documentation. 
 
-> O ReactJS não é um framework e por isso não pode ser comparado aos exemplos anteriores de maneira total. Eles fora utilizados somente para demonstrar a popularidade comparativa entre eles de acordo com informações atuais da comunidade de desenvolvimento.
+Besides that, the document itself can be used to mock servers for testing and early stage developmento of a digital product, making it easier to handle pre-MVP applications that can be used to show its concepts to an intereted part.
 
-Esta simples documentação visa fornecer informações sobre alguns aspéctos estruturais de funcionamento deste relativamente novo e muito eficiente framework.
-
----
-
-## Componentes
-
-Componentes são a base estrutural da construção usando ReactJS. Podemos pensar em componentes como uma view (ou subview) completa ou como somente um card ou barra de navegação em uma estrutura mais complexa.
-
-Os componentes ReactJS são implementados a partir da declaração de uma "classe", onde alguns métodos são utilizados para controlar sua renderização e seu ciclo de vida. Esta classe é então instanciada e vinculada a uma versão do DOM, denominada Virtual DOM.
-
-Os componentes ReactJS são utilizados como tags normais, incluindo a possibilidade de receber propriedades dos componentes externos através de atributos, assim como qualquer tag HTML padrão.
+Other languages available for the same purpose, or almost that, are RAML, mantained by MuleSoft, and the API Bluprint, maintaned by Apiary.
 
 ---
 
-## Uma Analogia Plausível
+## Why Use Swagger
 
-Mesmo sendo incompatível uma comparação entre o ReactJS e os frameworks listados anteriormente, devido ao primeiro se tratar de uma biblioteca, tecnicamente falando, é ainda possível fazer uma analogia direta:
-
-> É possível dizer que, no contexto da camada de view, o ReactJS é uma união de dois mundos, considerando o BackboneJS e o AngularJS como referência.
-
-Essa conclusão se deve a suas observações importantes:
-
-1. Como no BackboneJS, a ideia de componente se torna bem visível, onde o isolamento do mesmo se dá de forma natural. No BackboneJS, isso é realizado através do atributo `el` do objeto, no ReactJS, de forma implementada internamente pela biblioteca.
-2. Como no AngularJS, ao contrário do BackboneJS, as atribuições de ação, são definidas de forma declarativa, no próprio template, não necessitando vincular os elementos da view aos handlers programaticamente, como ocorre no segundo.
+1. Because it is completely based on the Community and not on an industry.
+2. Because it has awesome and easy to use tools.
+3. Because I like it (my talk, my rules! LOL)
 
 ---
 
-## Virtual DOM
+## How to use it
 
-Como dito antes, o Virtual DOM é uma versão leve da estrutura mantida pelo browser. Sua utilização se deve a uma melhor performance durante o ciclo de vida dos componentes, permitindo uma interação entre eles e o núcleo da biblioteca muito mais rápida do que se houvesse a necessidade de um acesso direto ao DOM, que depende de uma cadeia de acesso muito maior.
+There is no need to use any of the tools for creating Swagger documents, but it could be hard to validate its contents without a proper editor.
 
----
+For that reason, Swagger community created a really good editor that shows the results and warnings/errors in real time, during the edition stage.
 
-## Montagem
-
-Com o advento do Virtual DOM, visto que este não é o que está renderizado no browser, mas somente uma representação de tal conteúdo, cria-se a necessidade de se transformar esta representação em uma renderização real. A este processo chamamos de Montagem.
-
-A montagem ocorre com a chamada do método (de implementação obrigátoria) <b>render()</b> do componente em questão. 
-
-Uma curiosidade sobre o método <b>render()</b> é que, mesmo sendo obrigatório na implementação do componente, ele pode retornar <b>null</b>. Nesse caso, o component passará pelo mesmo ciclo de vida da montagem, mas não terá conteúdo exibido no browser. Casos de uso para esse tipo de cenário incluem componentes abstratos como controles de roteamento e mecanismos de gerenciamento de eventos globais.
+Another thing is that, given you would want to secure the source code, the Swagger community also provide us with a simple document browser, allowing any one to see the rendered document, but not the code behind it.
 
 ---
 
-## Ciclo de Vida
+## Online Editor
 
-O ciclo de vida dos componentes ReactJS seguem quatro cenários básicos:
+The editor can be accessed with the given URL:
 
-1. Montagem
-2. Alteração de Propriedades
-3. Alteração de Estado
-4. Desmontagem
+```http://editor.swagger.io/```
 
----
-
-### Renderização Inicial
-
-<center>
-![Renderização Incial](https://drive.google.com/uc?export=download&id=0B7CeDPlZO-G6Z0NabWxDcUgtOTA "Renderização Inicial")
-</center>
+This editor, even hosted by an cloud server, allows you to download the current file and also saves its content in the localstorage each time you change the content.
 
 ---
 
-## Alteração de Propriedade(s)
+## Local Editor
 
-<center>
-![Renderização Incial](https://drive.google.com/uc?export=download&id=0B7CeDPlZO-G6TDR5MXJ1YWFjYlE "Alteração de Propriedade(s)")
-</center>
+For those who want to have a totally private environment, the project is available on GITHUB. 
 
----
+You just need to clone the project and run ***npm start*** on its root folder.
 
-## Alteração de Estado
-
-<center>
-![Renderização Incial](https://drive.google.com/uc?export=download&id=0B7CeDPlZO-G6VldSdVBXNTFHV3c "Alteração de Estado")
-</center>
+```git clone https://github.com/swagger-api/swagger-editor.git```
 
 ---
 
-## Desmontagem
+## Specification
 
-<center>
-![Renderização Incial](https://drive.google.com/uc?export=download&id=0B7CeDPlZO-G6MnVqTTNYRVZTVFk "Desmontagem")
-</center>
+All you need to know about Swagger is available on its Specification Docs, on the bellow URL:
+
+```http://swagger.io/specification```
+
+But I will step through some basic stuffs. Don't worry!
+
+---
+
+## Syntax
+
+Swagger uses YML syntax or JSON syntax. 
+
+I suggest use YML, if you know how to do it, becuase of a single limitation of Swagger, comparing with RAML: 
+
+> There is no modularization!
+
+This way the file can become huge with time and YML save you from a too much large file.
+
+---
+
+## Common Sections
+
+The document is splited in some sections where we can define specific objects. We are going to work with just some of them:
+
+- paths
+- parameters
+- definitions
+
+---
+
+## Document Header
+
+```
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: APIs Backend
+host: api.avenuecode.com
+schemes:
+  - http
+  - https
+basePath: /api/v1
+``` 
+
+As any document we expect to be processed by an engine (for mock servers), we must define some meta data about its content.
+
+The header section contains elements that describe some _background_ information (a Gherkin term) about the contents on the ***paths*** section, like where and how to access its contents, and some informations about the file itself, like version, its title, and the language version for the engine.
+
+---
+
+## Paths Section
+
+As you may know, REST APIs are mostly defined as web resources mapped by its paths on an specified domain (not just that, but...). 
+
+This way, the path is of the resource is the most important thing about it and all that matters about its documentation, is related to it.
+
+A path section is mostly defined by the parameters in the next box.
+
+---
+
+## Path
+
+```
+paths:
+	/[path]:
+		[method]:
+			description: [description]
+			consumes:
+				- [mime type]
+				- [...]
+			produces:
+				- [mime type]
+				- [...]
+			parameters:
+				- [parameter]
+				- [...]
+			responses:
+				[code]:
+					description: [description]
+					schema:
+						[schema]
+		[method]:
+			...
+	/[path]:
+		...
+```
+
+---
